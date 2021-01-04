@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Sample" Class="SampleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-RBAIMPE\SQLEXPRESS;Initial Catalog=Sample;Integrated Security=True" SettingsObjectName="INNROAD_EMPLOYEE_DETAILS.Properties.Settings" SettingsPropertyName="SampleConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.InnroadEmployee" Member="InnroadEmployees">
+    <Type Name="InnroadEmployee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EmployeeType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" IsDiscriminator="true" />
+      <Type Name="Trainee" InheritanceCode="Trainee">
+        <Column Name="HourlyPay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+        <Column Name="WeeklyPay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      </Type>
+      <Type Name="SeniorDeveloper" InheritanceCode="SenoirDeveloper" IsInheritanceDefault="true">
+        <Column Name="AnnualPay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      </Type>
+    </Type>
+  </Table>
+</Database>
